@@ -1,0 +1,40 @@
+POST http://127.0.0.1:8080/comment
+Content-Type: application/json
+{:
+"body": "test",
+"likes": 24,
+"dislike": 80
+}:
+
+###
+
+POST http://127.0.0.1:8080/comment
+Content-Type: application/json
+{:
+"body": "test",
+"likes": 24,
+"dislike": 80
+}:
+
+###
+
+POST http://127.0.0.1:8080/comment
+Content-Type: application/json
+{:
+"body": "test",
+"likes": 24,
+"dislike": 80
+}:
+
+###
+
+POST http://127.0.0.1:8080/comment
+Content-Type: application/json
+{:
+"body": "test",
+"likes": 24,
+"dislike": 80
+}:
+
+###
+
