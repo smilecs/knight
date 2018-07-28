@@ -1,13 +1,23 @@
 package model
 
 import config.DbClient
-import kotlinx.coroutines.experimental.async
+import org.litote.kmongo.*
+import org.litote.kmongo.MongoOperator.*
 
 class BoardModel {
 
-    fun addNewPost(userBoard: UserBoard): List<UserBoard>  {
+    fun addNewPost(userBoard: UserBoard): List<UserBoard> {
         upsertPost(userBoard)
         return getPosts()
+    }
+
+    fun newComment(id: String, comment: Comment): List<UserBoard> {
+        println("data " + comment.json)
+        return DbClient.BoardModelCol().run {
+            updateOneById(id, "{$push: {'comment':${comment.json}}}")
+            find().toList()
+        }
+
     }
 
     private fun upsertPost(userBoard: UserBoard) = DbClient.BoardModelCol().insertOne(userBoard)
