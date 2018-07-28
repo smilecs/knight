@@ -1,0 +1,5 @@
+{
+  "name": "Ktor on Heroku",
+  "description": "Kotlin app, for Kotlin night",
+  "image": "heroku/java"
+}
