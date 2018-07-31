@@ -1,1 +1,1 @@
-web:    java -jar target/knight.jar
+web:    java -jar knight.jar

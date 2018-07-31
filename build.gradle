@@ -20,16 +20,31 @@ group 'knight'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'kotlin'
+apply plugin: 'application'
 apply plugin: 'com.github.johnrengelman.shadow'
 
 sourceCompatibility = 1.8
 
 kotlin { experimental { coroutines "enable" } }
 
+mainClassName = 'Main.kt'
 repositories {
     mavenCentral()
     jcenter()
     maven { url "https://dl.bintray.com/kotlin/ktor" }
+}
+
+shadowJar {
+    baseName = 'knight'
+    classifier = 'all'
+    version = version
+    configurations = [project.configurations.compile]
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
 }
 
 dependencies {
